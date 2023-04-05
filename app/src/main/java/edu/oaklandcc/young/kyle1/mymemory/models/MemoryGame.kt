@@ -55,15 +55,16 @@ class MemoryGame(private val boardSize: BoardSize) {
         }
     }
 
+    // Checking if the game was won
     fun haveWonGame(): Boolean {
         return numpairsFound == boardSize.getNumPairs()
 
     }
-
+    // Check for Card position
     fun isCardFaceUp(position: Int): Boolean {
         return cards[position].isFaceUp
     }
-
+    // Checking for number of moves to calculate score
     fun getNumMoves(): Int {
         return numCardFlips / 2
     }

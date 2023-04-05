@@ -40,6 +40,7 @@ class MemoryBoardAdapter(private val context: Context,
         layoutParams.width = cardSideLength
         layoutParams.height = cardSideLength
         layoutParams.setMargins(MARGIN_SIZE, MARGIN_SIZE, MARGIN_SIZE, MARGIN_SIZE)
+        // Set the width and height of view
         return ViewHolder(view)
     }
 

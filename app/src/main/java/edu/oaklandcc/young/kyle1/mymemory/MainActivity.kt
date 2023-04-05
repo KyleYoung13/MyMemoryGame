@@ -5,6 +5,7 @@ Source: https://www.youtube.com/watch?v=C2DBDZKkLss
 
 
 import android.animation.ArgbEvaluator
+import android.app.AlertDialog
 import android.content.ContentValues
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +18,6 @@ import android.view.View
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -115,6 +115,7 @@ class MainActivity : AppCompatActivity() {
             }.show()
     }
 
+    // Set Up Board based off the difficulty.
     private fun setupBoard() {
         when(boardSize){
             BoardSize.EASY -> {
