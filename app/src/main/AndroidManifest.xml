@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.oaklandcc.young.kyle1.mymemory">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMemory">
+
+        <activity
+            android:name=".CreateActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
         <activity
             android:name=".StartActivity"
             android:exported="true">
@@ -20,8 +27,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:screenOrientation="portrait"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

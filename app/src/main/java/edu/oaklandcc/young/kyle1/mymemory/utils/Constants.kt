@@ -2,7 +2,8 @@ package edu.oaklandcc.young.kyle1.mymemory.utils
 
 import edu.oaklandcc.young.kyle1.mymemory.R
 
-
+const val EXTRA_GAME_NAME = "EXTRA_GAME_NAME"
+const val EXTRA_BOARD_SIZE = "EXTRA_BOARD_SIZE"
 val DEFAULT_ICONS = listOf(
     R.drawable.ic_bike,
     R.drawable.ic_bunny,
