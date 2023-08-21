@@ -36,6 +36,7 @@ import edu.oaklandcc.young.kyle1.mymemory.models.UserImageList
 import edu.oaklandcc.young.kyle1.mymemory.utils.EXTRA_BOARD_SIZE
 import edu.oaklandcc.young.kyle1.mymemory.utils.EXTRA_GAME_NAME
 
+
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -56,6 +57,9 @@ class MainActivity : AppCompatActivity() {
     private var name = ""
     private var score = 0
     private var db:DbHelper = DbHelper(this)
+    private var refreshMenuItem: MenuItem? = null
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,17 +73,12 @@ class MainActivity : AppCompatActivity() {
         name = intent.getStringExtra("Name").toString()
 
         setupBoard()
-        if(name.isNotEmpty()){
-            refreshBoard()
-        }
-        else{
-            setupBoard()
-        }
-
+        setupBoard()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
+        refreshMenuItem = menu?.findItem(R.id.mi_refresh)
         return true
     }
 
@@ -87,13 +86,7 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId){
             R.id.mi_refresh ->{
                 //reset game
-                if(memoryGame.getNumMoves() > 0 && !memoryGame.haveWonGame()){
-                    showAlertDialog("Quit your current game?", null, View.OnClickListener {
-                        setupBoard()
-                    })
-                }else {
-                    setupBoard()
-                }
+                refreshBoard()
                 return true
             }
             R.id.mi_new_size ->{
@@ -125,6 +118,15 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
+    private fun refreshBoard(){
+        if(memoryGame.getNumMoves() > 0 && !memoryGame.haveWonGame()){
+            showAlertDialog("Quit your current game?", null, View.OnClickListener {
+                setupBoard()
+            })
+        }else {
+            setupBoard()
+        }
+    }
 
 
     private fun showDownloadDialog() {
@@ -221,7 +223,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         )
-
+        adapter.notifyDataSetChanged()
         rvBoard.adapter = adapter
         rvBoard.setHasFixedSize(true)
         rvBoard.layoutManager = GridLayoutManager(this, boardSize.getWidth())
@@ -288,8 +290,4 @@ class MainActivity : AppCompatActivity() {
         adapter.notifyDataSetChanged()
     }
 
-    private fun refreshBoard(){
-        setupBoard()
-        setupRecyclerView()
-    }
 }

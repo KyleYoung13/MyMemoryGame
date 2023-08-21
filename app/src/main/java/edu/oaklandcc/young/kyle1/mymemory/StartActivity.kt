@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import edu.oaklandcc.young.kyle1.mymemory.databinding.ActivityMainBinding
 import edu.oaklandcc.young.kyle1.mymemory.databinding.ActivityStartBinding
+
 
 class StartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStartBinding
@@ -20,6 +20,7 @@ class StartActivity : AppCompatActivity() {
         binding.startbutton.setOnClickListener {
             var intent = Intent(this, MainActivity::class.java)
             intent.putExtra("Name", binding.enterName.text.toString())
+
             startActivity(intent)
         }
         var db:DbHelper = DbHelper(this)
@@ -34,5 +35,6 @@ class StartActivity : AppCompatActivity() {
             binding.highScore.text = "Name:${name} \nHigh Score:${score}"
         }
     }
+
 
 }

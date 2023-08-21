@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import edu.oaklandcc.young.kyle1.mymemory.R
 import edu.oaklandcc.young.kyle1.mymemory.models.BoardSize
 import kotlin.math.min
 

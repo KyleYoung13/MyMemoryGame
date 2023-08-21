@@ -1,7 +1,6 @@
 package edu.oaklandcc.young.kyle1.mymemory.utils
 
 import android.graphics.Bitmap
-import android.icu.text.ListFormatter.Width
 
 object BitmapScaler {
 

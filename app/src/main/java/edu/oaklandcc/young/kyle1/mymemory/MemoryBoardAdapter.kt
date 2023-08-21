@@ -1,6 +1,5 @@
 package edu.oaklandcc.young.kyle1.mymemory
 
-import android.app.Activity
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import edu.oaklandcc.young.kyle1.mymemory.R
 import edu.oaklandcc.young.kyle1.mymemory.models.BoardSize
 import edu.oaklandcc.young.kyle1.mymemory.models.MemoryCard
 import kotlin.math.min
@@ -65,7 +65,7 @@ class MemoryBoardAdapter(private val context: Context,
                     imageButton.setImageResource(memoryCard.identifier)
                 }
             } else {
-                imageButton.setImageResource(R.drawable.memorygamecard)
+                imageButton.setImageResource(R.drawable.pmmcard)
             }
 
             imageButton.alpha = if(memoryCard.isMatched) .4f else 1.0f
